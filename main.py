@@ -1,2 +1,2 @@
 import pandas as pd
-ruta_csv = "datos.csv"
+ruta_csv = "basedatos.csv"
