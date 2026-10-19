@@ -64,7 +64,14 @@ df = pd.read_csv(ruta_csv)
 
 
 #Joins/////////////////////////////////////////////////////////////////////////////
+#Inner
+#resultado_inner = pd.merge(df, datos_extras, on='developer', how='inner')
 
+#Left
+#resultado_left = pd.merge(df, datos_extras, on='developer', how='left')
+
+#right
+#resultado_right = pd.merge(df, datos_extras, on='developer', how='right')
 
 
 
@@ -221,15 +228,35 @@ def menuproyecciones():
                 print("Opcion incorrecta. Ingrese del 1-7")
 
 
+#Pa mi Join
+datos_extras = pd.DataFrame({
+    'developer': [
+        'Nintendo EPD', 
+        'Game Freak', 
+        'Monolith Soft', 
+        'Bandai Namco Studios', 
+        'HAL Laboratory', 
+        'PlatinumGames',
+        'Capcom'
+    ],
+    'pais_origen': ['Japón', 'Japón', 'Japón', 'Japón', 'Japón', 'Japón', 'Japón'],
+    'fundacion': [2015, 1989, 1999, 2006, 1980, 2006, 1979]
+})
 
 def join1():
-    pass
+    print("\n(InnerJoin)Llama únicamente los videojuegos cuyo desarrollador existe exactamente en la tabla secundaria>>>")
+    resultado_inner = pd.merge(df, datos_extras, on='developer', how='inner')
+    print(resultado_inner)
 
 def join2():
-    pass
+    print("\n(LeftJoin)Llama a todos los videojuegos de la tabla principal; si el desarrollador está en la tabla secundaria, le añade sus datos>>>")
+    resultado_left = pd.merge(df, datos_extras, on='developer', how='left')
+    print(resultado_left)
 
 def join3():
-    pass
+    print("\n(RightJoin)Llama a todas las desarrolladoras de la tabla secundaria y los videojuegos que coinciden con ellas.")
+    resultado_right = pd.merge(df, datos_extras, on='developer', how='right')
+    print(resultado_right)
 
 
 def menujoin():
