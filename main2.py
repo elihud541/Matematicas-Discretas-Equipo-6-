@@ -74,7 +74,7 @@ def ajustar():
     
     match op: 
         case 1: 
-            print("\nElije el 0 / 1 (0 es no y el 1 es si)")
+            print("\nElige el 0 / 1 (0 es no y el 1 es si)")
             op2 = int(input("Ingresa un numero: "))
             if op2 == 1 :
                 pd.set_option('display.max_rows', None)
@@ -82,7 +82,7 @@ def ajustar():
                 pd.set_option('display.max_rows', 5)
 
         case 2: 
-            print("\nElije el 0 / 1 (0 es no y el 1 es si)")
+            print("\nElige el 0 / 1 (0 es no y el 1 es si)")
             op3 = int(input("Ingresa un numero: "))
             if op3 == 1 :
                 pd.set_option('display.max_columns', None)
