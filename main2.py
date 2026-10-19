@@ -63,6 +63,10 @@ df = pd.read_csv(ruta_csv)
 #print(juegos_recientes[['release_date']])
 
 
+#Joins/////////////////////////////////////////////////////////////////////////////
+
+
+
 
 #/////////////////////////////////////////////////////////////////////////////////
 
@@ -166,8 +170,7 @@ def menucondicional():
                 Condicional6()
 
             case 7:
-                main()
-                break
+                return
 
             case _:
                 print("Opcion incorrecta. Ingrese del 1-7")
@@ -212,11 +215,51 @@ def menuproyecciones():
                 proyeccion3()
 
             case 4:
-                main()
-                break
+                return
 
             case _:
                 print("Opcion incorrecta. Ingrese del 1-7")
+
+
+
+def join1():
+    pass
+
+def join2():
+    pass
+
+def join3():
+    pass
+
+
+def menujoin():
+    while True:
+        print("\n********************************************************************")
+        print("\tBienvenido al menu de Join")
+        print("********************************************************************")
+        print("Selecciona una opcion>>>")
+        print("1] Join 1>>>")
+        print("2] Join 2>>>")
+        print("3] Joim 3>>>")
+        print("4] Regresar al menu principal>>>")
+        opcionjoin= int(input("Ingresa un numero del menu: "))
+        
+        match opcionjoin:
+            case 1:
+                join1()
+
+            case 2:
+                join2()
+
+            case 3:
+                join3()
+
+            case 4:
+                return
+
+            case _:
+                print("Opcion incorrecta. Ingrese del 1-7")
+
 
 
 def main():
@@ -246,7 +289,7 @@ def main():
                 menuproyecciones()
 
             case 3: 
-                pass 
+                menujoin()
 
             case 4:
                 print("\nCerrando el programa.....")
