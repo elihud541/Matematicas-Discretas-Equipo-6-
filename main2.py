@@ -108,9 +108,9 @@ def Condicional2():
 
 def Condicional3():
     df['release_date'] = pd.to_datetime(df['release_date'])
-    print("\nSe van a llamar a los videojuegos por fechas de salida (Reciente al mas viejo)>>>")
-    juegos_recientes = df.sort_values(by='release_date', ascending=False)
-    print(juegos_recientes)
+    print("\nSe van a llamar a los videojuegos lanzados del 2020 en adelante (ordenados del más reciente al más viejo)>>>")
+    juegos_filtrados_recientes = df[df['release_date'].dt.year >= 2020].sort_values(by='release_date', ascending=False)
+    print(juegos_filtrados_recientes)
 
 
 def Condicional4():
@@ -144,7 +144,7 @@ def menucondicional():
         print("5] Condicional 5>>>")
         print("6] Condicional 6>>>")
         print("7] Regresar al menu principal>>>")
-        opcioncondicional= int(input("Ingresa un numero del menu:"))
+        opcioncondicional= int(input("Ingresa un numero del menu: "))
         
         match opcioncondicional:
             case 1:
@@ -174,7 +174,49 @@ def menucondicional():
 
 
 
+def proyeccion1():
+    print("\nEsta proyeccion se va a realizar en la busqueda de la columna de titulos de los videojuegos>>>")
+    print(df['title'])
 
+
+def proyeccion2():
+    print("\nEsta proyeccion se va a realizar en la busqueda de la columna de titulos y desarrollador de los videojuegos>>>")
+    pro2= df[['title', 'developer']]
+    print(pro2)
+
+def proyeccion3():
+    print("\nEsta proyeccion se va a realizar en la busqueda de la columna de Fecha de ultima actualizacion y lanzamiento>>>")
+    pro3= df[['as_of', 'release_date']]
+    print(pro3)
+
+def menuproyecciones():
+    while True:
+        print("\n********************************************************************")
+        print("\tBienvenido al menu de Proyecciones")
+        print("********************************************************************")
+        print("Selecciona una opcion>>>")
+        print("1] Proyeccion 1>>>")
+        print("2] Proyeccion 2>>>")
+        print("3] Proyeccion 3>>>")
+        print("4] Regresar al menu principal>>>")
+        opcionProyeccion= int(input("Ingresa un numero del menu: "))
+        
+        match opcionProyeccion:
+            case 1:
+                proyeccion1()
+
+            case 2:
+                proyeccion2()
+
+            case 3:
+                proyeccion3()
+
+            case 4:
+                main()
+                break
+
+            case _:
+                print("Opcion incorrecta. Ingrese del 1-7")
 
 
 def main():
@@ -198,13 +240,13 @@ def main():
                 ajustar()
 
             case 1: 
-                Llamada1()
+                menucondicional()
 
             case 2: 
-                Llamada2()
+                menuproyecciones()
 
             case 3: 
-                Llamada3()  
+                pass 
 
             case 4:
                 print("\nCerrando el programa.....")
