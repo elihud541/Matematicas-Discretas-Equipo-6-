@@ -94,29 +94,87 @@ def ajustar():
             
 
 
-def Llamada1():
+def Condicional1():
     print("\nSe va a llamar a los videojuegos que son desarrollados por Nintendo>>>")
     creador_Nintendo = df[df['developer'] == 'Nintendo EPD']
     print(creador_Nintendo)
 
 
-def Llamada2():
+def Condicional2():
     print("\nSe van a llamar a los videojuegos mas vendidos de la Nintendo switch\nmayor a 10,000,000 de copias vendidas>>>")
     copias_mas_vendidas = df[df['copies_sold'] > 10000000]
     print(copias_mas_vendidas)
 
 
-def Llamada3():
+def Condicional3():
     df['release_date'] = pd.to_datetime(df['release_date'])
     print("\nSe van a llamar a los videojuegos por fechas de salida (Reciente al mas viejo)>>>")
     juegos_recientes = df.sort_values(by='release_date', ascending=False)
     print(juegos_recientes)
 
 
-def Llamada4():
-    print("\nSe llamaran a lo videojuegos no creados por nintendo y\nmas vendidos(mayor a 10,000,000 copias)>>>")
+def Condicional4():
+    print("\nSe van a llamar a los videojuegos no creados por nintendo y\nmas vendidos(mayor a 10,000,000 copias)>>>")
     No_creador_Nintendo_copiasmasvendidas = df[(df['developer'] != 'Nintendo EPD') & (df['copies_sold'] > 10000000)]
     print(No_creador_Nintendo_copiasmasvendidas)
+
+
+def Condicional5():
+    print("\nSe van a llamar a los videojuegos por sus generos de Platformer y Sports>>>")
+    Gen_Plat_Sport = df[df['genre'].isin(['Platformer', 'Sports'])]
+    print(Gen_Plat_Sport)
+
+
+def Condicional6():
+    print("\nSe van a llamar a los videojuegos Publicados por The Pokémon CompanyNintendo con menores ventas de 20,000,000 copias>>>")
+    Publicador_Poke_copiasmenosvendidas = df[(df['publisher'] == 'The Pokémon CompanyNintendo') & (df['copies_sold'] < 20000000)]
+    print(Publicador_Poke_copiasmenosvendidas)
+
+
+def menucondicional():
+    while True:
+        print("\n********************************************************************")
+        print("\tBienvenido al menu de condicionales")
+        print("********************************************************************")
+        print("Selecciona una opcion>>>")
+        print("1] Condicional 1>>>")
+        print("2] Condicional 2>>>")
+        print("3] Condicional 3>>>")
+        print("4] Condicional 4>>>")
+        print("5] Condicional 5>>>")
+        print("6] Condicional 6>>>")
+        print("7] Regresar al menu principal>>>")
+        opcioncondicional= int(input("Ingresa un numero del menu:"))
+        
+        match opcioncondicional:
+            case 1:
+                Condicional1()
+
+            case 2:
+                Condicional2()
+
+            case 3:
+                Condicional3()
+
+            case 4:
+                Condicional4()
+
+            case 5:
+                Condicional5()
+
+            case 6:
+                Condicional6()
+
+            case 7:
+                main()
+                break
+
+            case _:
+                print("Opcion incorrecta. Ingrese del 1-7")
+
+
+
+
 
 
 def main():
@@ -128,11 +186,10 @@ def main():
 
         print("Selecciona una opcion>>>")
         print("0] Ajustar el orden de la vista de la base de datos>>>")
-        print("1] Llamada 1>>>")
-        print("2] Llamada 2>>>")
-        print("3] Llamada 3>>>")
-        print("4] Llamada 4>>>")
-        print("5] Cerrar Programa>>>")
+        print("1] Condicionales>>>")
+        print("2] Proyecciones>>>")
+        print("3] Joins>>>")
+        print("4] Cerrar Programa>>>")
         opcion = int(input("Ingresa un numero del menu: "))
 
         match opcion: 
@@ -147,12 +204,9 @@ def main():
                 Llamada2()
 
             case 3: 
-                Llamada3()
+                Llamada3()  
 
-            case 4: 
-                Llamada4()   
-
-            case 5:
+            case 4:
                 print("\nCerrando el programa.....")
                 break 
 
